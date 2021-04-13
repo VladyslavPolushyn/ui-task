@@ -1,0 +1,504 @@
+@import '_colors.sass'
+
+body
+	background-color: $darkColor
+	margin: 0 auto
+	max-width: 1200px
+	font-family: Georgia, serif
+	font-size: 12px
+	color: $textColor
+
+a, a:hover, a:visited, a:active
+	text-decoration: none
+	color: $accentColor
+
+ul
+	padding: 0
+	margin: 0
+	list-style-type: none
+
+.wrapper
+	background-color: #fff
+	max-width: 960px
+	margin: 0 auto
+
+.container
+	box-sizing: border-box
+	max-width: 960px
+	margin: 0 auto
+
+.container:not(.footer__container)
+	padding: 0 20px
+
+.header__container
+	border-top: 5px solid $accentColor
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+	.logo__name
+		margin-top: 20px
+		text-transform: uppercase
+		font-size: 26px
+
+		&:first-letter
+			font-size: 34px
+
+	.logo__description
+		font-size: 12.5px
+		line-height: .6
+
+	#navToggler
+		opacity: 0
+
+		&:checked ~ .nav-btn > span
+			transform: rotate(45deg)
+
+			&::before
+				top: 0
+				transform: rotate(0)
+
+			&::after
+				top: 0
+				transform: rotate(90deg)
+
+		&:checked ~ .header__nav
+			visibility: visible
+			left: 0
+			top: 70px
+
+
+	.nav-btn
+		display: none
+		align-items: center
+		position: absolute
+		top: 25px
+		right: 20px
+		width: 26px
+		height: 26px
+		cursor: pointer
+		z-index: 1
+
+		span, span::before, span::after
+			display: block
+			position: absolute
+			width: 100%
+			height: 2px
+			background-color: $accentColor
+
+		span::before
+			content: ''
+			top: -8px
+
+		span::after
+			content: ''
+			top: 8px
+
+
+	.nav-item
+		box-sizing: border-box
+		font-size: 12.5px
+		text-transform: uppercase
+		color: $textColor
+		display: inline-block
+		padding: 52px 20px 30px 20px
+		transition: .2s ease
+
+		&:last-child
+			margin-right: -20px
+
+		&:hover, &_active
+			color: #fff
+			background-color: $accentColor
+
+	hr
+		margin: 0
+		flex-basis: 100%
+		border: none
+		color: $accentColor
+		background-color: $accentColor
+		height: 1px
+
+.quote
+	margin: 38px auto
+
+	h1
+		font-weight: normal
+		font-size: 21.5px
+		line-height: 1.4
+		font-style: italic
+		margin: 0
+		padding: 0 100px
+		text-align: center
+
+.slider
+	padding-bottom: 36px
+
+	&__container
+		position: relative
+
+	&__images
+		margin-bottom: 20px
+
+		.slide
+			height: 350px
+
+			&.slide_1
+				background: url('../img/slide-1.jpg') no-repeat center/cover
+				display: none
+
+			&.slide_2
+				background: url('../img/slide-2.jpg') no-repeat center/cover
+				display: none
+
+			&.slide_3
+				background: url('../img/slide-3.jpg') no-repeat center/cover
+				display: none
+
+			&.slide_4
+				background: url('../img/slide-4.jpg') no-repeat center/cover
+				display: none
+
+			&.slide_5
+				background: url('../img/slide-5.jpg') no-repeat center/cover
+				display: none
+
+			&.fade
+				-webkit-animation-name: fade
+				-webkit-animation-duration: 1.5s
+				animation-name: fade
+				animation-duration: 1.5s
+
+			&__info
+				height: 100%
+				display: flex
+				flex-direction: column
+				justify-content: flex-end
+				box-sizing: border-box
+				padding: 0 60px
+				padding-bottom: 20px
+				width: 50%
+				margin-left: auto
+
+			&__title
+
+				h2
+					font-weight: normal
+					font-size: 21px
+					text-align: center
+					background-color: $accentColor
+					margin: 0 auto
+					margin-bottom: 10px
+					padding: 10px 0
+					color: #fff
+
+			&__text
+
+				p
+					margin: 0
+					background-color: #fff
+					padding: 13px
+					line-height: 1.3
+
+	&__controls
+		padding: 0 10px
+		display: flex
+		justify-content: space-between
+		width: calc(100% - 60px)
+		position: absolute
+		top: calc(50% - 52px) 
+
+		.next, .prev
+			position: relative
+			height: 52px
+			width: 52px
+			background-color: #000
+			box-sizing: border-box
+			border: 2px solid $accentColor
+			border-radius: 50%
+			transition: .2s
+			background: #000 url('../img/arrow.png') no-repeat center
+
+			&:hover
+				cursor: pointer
+				background-color: #fff
+
+		.next
+			transform: rotate(180deg)
+
+	&__dots
+		text-align: center
+
+		.dot
+			display: inline-block
+			box-sizing: border-box
+			height: 16px
+			width: 16px
+			border: 3px solid $accentColor
+			border-radius: 50%
+			background-color: $accentColor
+			transition: .2s
+
+			&:hover
+				cursor: pointer
+				background-color: #fff
+
+			&_active
+				background-color: #fff
+
+.content
+	padding-bottom: 40px
+
+	hr
+		margin: 0
+		color: #E3E3E3
+		background-color: $lightGray
+		border: none
+		height: 1px
+
+	&__blocks
+		margin-top: 40px
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+
+		.content__block
+			width: 280px
+
+			h2
+				font-weight: normal
+				margin: 0
+				margin-bottom: 22px
+				font-size: 22px
+
+			.about
+
+				&__img
+					border: 1px solid $lightGray
+					padding: 5px
+					margin-bottom: 17px
+
+					img
+						max-width: 100%
+						height: auto
+
+				&__text
+
+					p
+						margin: 0
+						margin-top: 20px
+						letter-spacing: 1px
+						line-height: 1.47
+
+			a
+				margin-top: 5px
+				display: block
+				text-align: right
+				letter-spacing: 1px
+
+	.service
+		display: flex
+		justify-content: space-between
+
+		&__img
+			
+			img
+				width: 64px
+				height: 64px
+
+		&__info
+			margin-left: 15px
+
+			h4
+				margin: 0
+				font-size: 15px
+
+			p
+				letter-spacing: 1px
+				line-height: 1.47
+
+	.testimonials
+
+		&__item
+			margin-bottom: 20px
+
+			h4
+				position: relative
+				margin: 0
+				margin-bottom: 25px
+				padding-left: 60px
+				font-size: 15px
+
+				&:before
+					content: ''
+					left: 0
+					top: -15px
+					position: absolute
+					width: 55px
+					height: 45px
+					background: url('../img/quote-icon.png') no-repeat center
+
+				span
+					font-weight: normal
+
+			p
+				letter-spacing: 1px
+				line-height: 1.47
+
+.footer
+	padding-top: 35px
+
+	&__blocks
+		display: flex
+		justify-content: space-between
+
+	&__block
+		width: 225px
+
+		h4
+			margin: 0
+			margin-bottom: 18px
+			font-size: 14px
+			color: #fff
+			padding-bottom: 17px
+			border-bottom: 1px solid $darkAccentColor
+
+	.details
+
+		&__address, &__contacts, &__working-hours
+			font-size: 13px
+			margin-bottom: 20px
+
+		&__working-hours
+
+			h5
+				margin: 0
+				font-size: 13px
+
+	.social
+
+		&__link
+			display: block
+			padding: 15px 0
+			padding-left: 40px
+			border-bottom: 1px solid $darkAccentColor
+			position: relative
+
+			&:before
+				content: ''
+				position: absolute
+				top: 4px
+				left: 0
+				width: 30px
+				height: 30px
+				border-radius: 50%
+
+			&_linkedin
+
+				&:before
+					background: $darkAccentColor url('../img/icon_sprites.png') -70.5px -4px
+					transition: .2s
+
+				&:hover::before
+					background: $darkAccentColor url('../img/icon_sprites.png') -106px -4px
+
+			&_twitter
+
+				&:before
+					background: $darkAccentColor url('../img/icon_sprites.png') -214px -4px
+					transition: .2s
+
+				&:hover::before
+					background: $darkAccentColor url('../img/icon_sprites.png') -250px -4px
+
+			&_pinteres
+
+				&:before
+					background: $darkAccentColor url('../img/icon_sprites.png') -142px -4px
+					transition: .2s
+
+				&:hover::before
+					background: $darkAccentColor url('../img/icon_sprites.png') -178px -4px
+
+			&_rss
+
+				&:before
+					background: $darkAccentColor url('../img/icon_sprites.png') -2px -4px
+					transition: .2s
+
+				&:hover::before
+					background: $darkAccentColor url('../img/icon_sprites.png') -36px -4px
+
+	.blog
+
+		&__item
+			margin-bottom: 10px
+
+			h5
+				font-size: 14px
+				margin: 0
+				margin-bottom: 5px
+
+			a
+				display: block
+				text-align: right
+
+			p
+				line-height: 1.4
+
+	.contacts
+
+		input, textarea
+			font-family: Georgia, serif
+			width: 225px
+			box-sizing: border-box
+			border-radius: 5px
+			background-color: $darkAccentColor
+			outline: none
+			border: none
+			padding: 10px
+			margin-bottom: 10px
+
+		textarea
+			height: 110px
+			resize: none
+
+		button
+			display: block
+			margin-right: auto
+			font-family: Georgia, serif
+			color: $darkColor
+			background-color: $accentColor
+			border: 2px solid $accentColor
+			outline: none
+			border-radius: 5px
+			font-weight: bold
+			padding: 5px 9px
+			transition: .2s
+
+			&:hover
+				cursor: pointer
+				background-color: #fff
+
+
+	&__copyrights
+		margin-top: 30px
+		padding: 17px 0
+		border-top: 1px solid $darkAccentColor
+		display: flex
+		justify-content: space-between
+
+
+@-webkit-keyframes fade
+	from
+		opacity: .4
+	to
+		opacity: 1
+
+@keyframes fade
+	from
+		opacity: .4
+	to
+		opacity: 1
+
+@import '_media.sass'
