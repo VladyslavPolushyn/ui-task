@@ -17,12 +17,10 @@ ul {
 
 .wrapper {
   background-color: #fff;
-  max-width: 960px;
   margin: 0 auto; }
 
 .container {
   box-sizing: border-box;
-  max-width: 960px;
   margin: 0 auto; }
 
 .container:not(.footer__container) {
@@ -91,6 +89,8 @@ ul {
     .header__container .nav-item:hover, .header__container .nav-item_active {
       color: #fff;
       background-color: #9CC448; }
+    .header__container .nav-item:active {
+      transform: scale(0.97); }
   .header__container hr {
     margin: 0;
     flex-basis: 100%;
@@ -107,7 +107,7 @@ ul {
     line-height: 1.4;
     font-style: italic;
     margin: 0;
-    padding: 0 100px;
+    padding: 0 200px;
     text-align: center; }
 
 .slider {
@@ -182,6 +182,8 @@ ul {
       .slider__controls .next:hover, .slider__controls .prev:hover {
         cursor: pointer;
         background-color: #fff; }
+      .slider__controls .next:active, .slider__controls .prev:active {
+        box-shadow: 0px 0px 5px 5px #2D2D2D; }
     .slider__controls .next {
       transform: rotate(180deg); }
   .slider__dots {
@@ -198,11 +200,36 @@ ul {
       .slider__dots .dot:hover {
         cursor: pointer;
         background-color: #fff; }
+      .slider__dots .dot:active {
+        transform: scale(0.9); }
       .slider__dots .dot_active {
         background-color: #fff; }
 
 .content {
   padding-bottom: 40px; }
+  .content a {
+    margin-top: 5px;
+    margin-left: auto;
+    display: inline-block;
+    text-align: right;
+    letter-spacing: 1px;
+    position: relative;
+    transition: 0.2s; }
+    .content a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #9CC448;
+      transform: scaleX(0);
+      transform-origin: bottom left;
+      transition: 0.2s; }
+    .content a:hover:after {
+      transform: scaleX(1); }
+    .content a:active:after {
+      transform: scaleX(0.2); }
   .content hr {
     margin: 0;
     color: #E3E3E3;
@@ -233,11 +260,8 @@ ul {
         margin-top: 20px;
         letter-spacing: 1px;
         line-height: 1.47; }
-      .content__blocks .content__block a {
-        margin-top: 5px;
-        display: block;
-        text-align: right;
-        letter-spacing: 1px; }
+      .content__blocks .content__block .about__link {
+        text-align: right; }
   .content .service {
     display: flex;
     justify-content: space-between; }
@@ -252,6 +276,8 @@ ul {
       .content .service__info p {
         letter-spacing: 1px;
         line-height: 1.47; }
+  .content .services__link {
+    text-align: right; }
   .content .testimonials__item {
     margin-bottom: 20px; }
     .content .testimonials__item h4 {
@@ -273,9 +299,31 @@ ul {
     .content .testimonials__item p {
       letter-spacing: 1px;
       line-height: 1.47; }
+  .content .testimonials__link {
+    text-align: right; }
 
 .footer {
   padding-top: 35px; }
+  .footer a {
+    margin-left: auto;
+    display: inline-block;
+    position: relative;
+    transition: 0.2s; }
+    .footer a:after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #9CC448;
+      transform: scaleX(0);
+      transform-origin: bottom left;
+      transition: 0.2s; }
+    .footer a:hover:after {
+      transform: scaleX(1); }
+    .footer a:active:after {
+      transform: scaleX(0.2); }
   .footer__blocks {
     display: flex;
     justify-content: space-between; }
@@ -334,12 +382,12 @@ ul {
       font-size: 14px;
       margin: 0;
       margin-bottom: 5px; }
-    .footer .blog__item a {
-      display: block;
-      text-align: right; }
     .footer .blog__item p {
       line-height: 1.4; }
+  .footer .blog__link {
+    text-align: right; }
   .footer .contacts input, .footer .contacts textarea {
+    color: #888888;
     font-family: Georgia, serif;
     width: 225px;
     box-sizing: border-box;
@@ -367,6 +415,8 @@ ul {
     .footer .contacts button:hover {
       cursor: pointer;
       background-color: #fff; }
+    .footer .contacts button:active {
+      transform: scale(0.97); }
   .footer__copyrights {
     margin-top: 30px;
     padding: 17px 0;

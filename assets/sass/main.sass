@@ -19,12 +19,10 @@ ul
 
 .wrapper
 	background-color: #fff
-	max-width: 960px
 	margin: 0 auto
 
 .container
 	box-sizing: border-box
-	max-width: 960px
 	margin: 0 auto
 
 .container:not(.footer__container)
@@ -111,6 +109,9 @@ ul
 			color: #fff
 			background-color: $accentColor
 
+		&:active
+			transform: scale(.97)
+
 	hr
 		margin: 0
 		flex-basis: 100%
@@ -128,7 +129,7 @@ ul
 		line-height: 1.4
 		font-style: italic
 		margin: 0
-		padding: 0 100px
+		padding: 0 200px
 		text-align: center
 
 .slider
@@ -223,6 +224,9 @@ ul
 				cursor: pointer
 				background-color: #fff
 
+			&:active
+				box-shadow: 0px 0px 5px 5px $darkColor
+
 		.next
 			transform: rotate(180deg)
 
@@ -243,11 +247,45 @@ ul
 				cursor: pointer
 				background-color: #fff
 
+			&:active
+				transform: scale(.9)
+
 			&_active
 				background-color: #fff
 
 .content
 	padding-bottom: 40px
+
+	a
+		margin-top: 5px
+		margin-left: auto
+		display: inline-block
+		text-align: right
+		letter-spacing: 1px
+		position: relative
+		transition: .2s
+
+		&:after
+			content: ''
+			position: absolute
+			bottom: -5px
+			left: 0
+			width: 100%
+			height: 2px
+			background-color: $accentColor
+			transform: scaleX(0)
+			transform-origin: bottom left
+			transition: .2s
+
+		&:hover
+
+			&:after
+				transform: scaleX(1)
+
+		&:active
+
+			&:after
+				transform: scaleX(.2)
 
 	hr
 		margin: 0
@@ -290,11 +328,8 @@ ul
 						letter-spacing: 1px
 						line-height: 1.47
 
-			a
-				margin-top: 5px
-				display: block
-				text-align: right
-				letter-spacing: 1px
+				&__link
+					text-align: right
 
 	.service
 		display: flex
@@ -317,6 +352,9 @@ ul
 				letter-spacing: 1px
 				line-height: 1.47
 
+	.services__link
+		text-align: right
+	
 	.testimonials
 
 		&__item
@@ -345,8 +383,39 @@ ul
 				letter-spacing: 1px
 				line-height: 1.47
 
+		&__link
+			text-align: right
+
 .footer
 	padding-top: 35px
+
+	a
+		margin-left: auto
+		display: inline-block
+		position: relative
+		transition: .2s
+
+		&:after
+			content: ''
+			position: absolute
+			bottom: -5px
+			left: 0
+			width: 100%
+			height: 2px
+			background-color: $accentColor
+			transform: scaleX(0)
+			transform-origin: bottom left
+			transition: .2s
+
+		&:hover
+
+			&:after
+				transform: scaleX(1)
+
+		&:active
+
+			&:after
+				transform: scaleX(.2)
 
 	&__blocks
 		display: flex
@@ -439,16 +508,16 @@ ul
 				margin: 0
 				margin-bottom: 5px
 
-			a
-				display: block
-				text-align: right
-
 			p
 				line-height: 1.4
+
+		&__link
+			text-align: right
 
 	.contacts
 
 		input, textarea
+			color: $textColor
 			font-family: Georgia, serif
 			width: 225px
 			box-sizing: border-box
@@ -479,6 +548,9 @@ ul
 			&:hover
 				cursor: pointer
 				background-color: #fff
+
+			&:active
+				transform: scale(.97)
 
 
 	&__copyrights
